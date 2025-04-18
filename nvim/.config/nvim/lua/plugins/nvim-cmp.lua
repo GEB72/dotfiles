@@ -20,18 +20,27 @@ return {
             require("luasnip").lsp_expand(args.body)
           end,
         },
-        window = {
-        },
+        enabled = function ()
+			local disabled = false
+			disabled = disabled or (vim.api.nvim_get_option_value('buftype', { buf = 0 }) == 'prompt')
+			disabled = disabled or (vim.fn.reg_recording() ~= '')
+			disabled = disabled or (vim.fn.reg_executing() ~= '')
+			disabled = disabled or require('cmp.config.context').in_treesitter_capture('comment')
+			return not disabled
+        end,
 		experimental = {
 		  ghost_text = false,
   		},
-		completion = {
-			autocomplete = false,
-		},
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-Space>"] = function ()
+			  if cmp.visible() then
+				  cmp.close()
+			  else
+				  cmp.complete()
+			  end
+		  end,
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),

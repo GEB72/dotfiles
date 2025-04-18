@@ -18,14 +18,9 @@ vim.keymap.set({'n', 'v'}, '<S-CR>', 'O<Esc>j')
 
 vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 
-vim.keymap.set({'n', 'v'},'<leader>h','<C-w>h')
-vim.keymap.set({'n', 'v'},'<leader>j','<C-w>j')
-vim.keymap.set({'n', 'v'},'<leader>k','<C-w>k')
-vim.keymap.set({'n', 'v'},'<leader>l','<C-w>l')
+vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 vim.keymap.set({'i', 'v', 'n'}, 'aa','<Esc>')
-
---vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
 
 -- User commands
 vim.api.nvim_create_user_command('Lm', 'Leet menu', {})
@@ -42,6 +37,7 @@ vim.api.nvim_create_user_command('Le', 'Leet exit', {})
 
 -- General Formatting
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
 vim.opt.splitbelow = true
@@ -114,6 +110,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       end
     end
     vim.lsp.buf.format({async = false})
-	vim.cmd('!silent go mod tidy')
+	vim.cmd('silent !go mod tidy')
   end
 })
