@@ -87,6 +87,7 @@ vim.lsp.config['gopls'] = {
 
 vim.lsp.enable('luals')
 vim.lsp.enable('gopls')
+vim.lsp.enable('jdtls')
 vim.diagnostic.config({ update_in_insert = true })
 
 -- Auto Formatting
