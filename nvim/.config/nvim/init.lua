@@ -22,6 +22,7 @@ vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 vim.keymap.set({'i', 'v', 'n'}, 'aa','<Esc>')
 
+
 -- User commands
 vim.api.nvim_create_user_command('Lm', 'Leet menu', {})
 vim.api.nvim_create_user_command('Lc', 'Leet console', {})
@@ -48,6 +49,18 @@ vim.wo.number = true
 vim.opt.laststatus = 3
 
 vim.opt.cmdheight = 0
+
+-- Show CMD Line in Recording Mode
+vim.api.nvim_create_autocmd("RecordingEnter", {
+  callback = function()
+    vim.opt.cmdheight = 1
+  end,
+})
+vim.api.nvim_create_autocmd("RecordingLeave", {
+  callback = function()
+    vim.opt.cmdheight = 0
+  end,
+})
 
 
 -- Session Options
@@ -87,8 +100,8 @@ vim.lsp.config['gopls'] = {
 
 vim.lsp.enable('luals')
 vim.lsp.enable('gopls')
-vim.lsp.enable('jdtls')
 vim.diagnostic.config({ update_in_insert = true })
+
 
 -- Auto Formatting
 vim.api.nvim_create_autocmd("BufWritePre", {
