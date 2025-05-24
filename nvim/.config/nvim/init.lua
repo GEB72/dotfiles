@@ -22,6 +22,7 @@ vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
 vim.keymap.set({'i', 'v', 'n'}, 'aa','<Esc>')
 
+vim.keymap.set({'v'}, '<leader>r', ':s/\\%V')
 
 -- User commands
 vim.api.nvim_create_user_command('Lm', 'Leet menu', {})
