@@ -20,7 +20,7 @@ vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 
 vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
-vim.keymap.set({'i', 'v', 'n'}, 'aa','<Esc>')
+vim.keymap.set({'i'}, 'aa','<Esc>')
 
 vim.keymap.set({'v'}, '<leader>r', ':s/\\%V')
 
@@ -45,11 +45,19 @@ vim.opt.shiftwidth = 4
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.wo.number = true
+vim.wo.relativenumber = true
 
 vim.opt.laststatus = 3
 
 vim.opt.cmdheight = 0
+
+
+-- Highlighted Yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank({ timeout = 200 })
+  end,
+})
 
 -- Show CMD Line in Recording Mode
 vim.api.nvim_create_autocmd("RecordingEnter", {
