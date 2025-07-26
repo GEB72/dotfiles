@@ -17,6 +17,15 @@ vim.keymap.set({'n', 'v'}, '<CR>', 'o<Esc>k')
 vim.keymap.set({'n', 'v'}, '<S-CR>', 'O<Esc>j')
 
 vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<leader>d', '"+d')
+
+vim.keymap.set({'n'}, '<leader>q', ':q<CR>')
+vim.keymap.set({'n'}, '<leader>Q', ':q!<CR>')
+vim.keymap.set({'n'}, '<leader><Esc>', ':qa')
+
+vim.keymap.set({'n'}, '<leader>w', ':w<CR>')
+vim.keymap.set({'n'}, '<leader>W', ':wa<CR>')
 
 vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 
@@ -38,9 +47,9 @@ vim.api.nvim_create_user_command('Le', 'Leet exit', {})
 
 
 -- General Formatting
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -107,8 +116,15 @@ vim.lsp.config['gopls'] = {
   },
 }
 
+vim.lsp.config['nil'] = {
+  cmd = { 'nil' },
+  filetypes = { 'nix' },
+  capabilities = capabilities,
+  },
+
 vim.lsp.enable('luals')
 vim.lsp.enable('gopls')
+vim.lsp.enable('nil')
 vim.diagnostic.config({ update_in_insert = true })
 
 
