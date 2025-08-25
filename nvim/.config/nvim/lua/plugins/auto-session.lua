@@ -22,7 +22,7 @@ return {
 			-- },
 		  },
 		},
-		allowed_dirs = { '~/dotfiles/*', '~/Workspace/repo/*', '~/go/pkg/*' },
+		allowed_dirs = { '~/dotnix', '~/dotfiles/*', '~/Workspace/repo/*', '~/go/pkg/*' },
 	  },
 	}
 }

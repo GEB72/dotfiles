@@ -2,13 +2,9 @@
 vim.g.mapleader = "<Space>"
 
 
--- Setup Lazy
+-- Execute Setup First
 require("config.lazy")
-
--- Setup Autocloser
 require("autoclose").setup()
-
--- Setup Markdown Renderer 
 require("render-markdown").enable()
 
 
@@ -27,7 +23,7 @@ vim.keymap.set({'n'}, '<leader><Esc>', ':qa')
 vim.keymap.set({'n'}, '<leader>w', ':w<CR>')
 vim.keymap.set({'n'}, '<leader>W', ':wa<CR>')
 
-vim.keymap.set('n', '<leader>d', '<cmd>lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set({'n', 'v'}, '<leader>sd', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
 vim.keymap.set({'i'}, 'aa','<Esc>')
 
