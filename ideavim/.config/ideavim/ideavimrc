@@ -1,0 +1,101 @@
+set NERDTree 
+set surround
+set highlightedyank
+
+set relativenumber
+set scrolloff=10
+
+set ignorecase
+set smartcase
+set incsearch
+
+set timeout timeoutlen=750
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+set visualbell
+
+nnoremap <SPACE> <Nop>
+let mapleader = "\<Space>"
+
+nnoremap <CR> o<Esc>k
+nnoremap <S-CR> o<Esc>j
+
+inoremap jk <Esc>
+
+nnoremap <leader>q :action CloseContent<CR>
+nnoremap <leader>h :action HideActiveWindow<CR>
+
+nnoremap <leader><leader>d :action ToggleDistractionFreeMode<CR>
+nnoremap <leader><leader>z :action ToggleZenMode<CR>
+nnoremap <leader><leader>f :action ToggleFullScreen<CR>
+
+nnoremap <leader><leader>l :action MoveTabRight<CR>
+nnoremap <leader><leader>h :action MoveTabLeft<CR>
+nnoremap <leader><leader>L :action SplitVertically<CR>
+nnoremap <leader><leader>J :action SplitHorizontally<CR>
+nnoremap <leader><leader>s :action MoveEditorToOppositeTabGroup<CR>
+
+nnoremap <leader>wf :action ActivateProjectToolWindow<CR>
+nnoremap <leader>wb :action ActivateBookmarksToolWindow<CR>
+nnoremap <leader>wr :action ActivateRunToolWindow<CR>
+nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
+nnoremap <leader>wp :action ActivateProblemsToolWindow<CR>
+nnoremap <leader>wv :action ActivateVersionControlToolWindow<CR>
+
+nnoremap <leader>ft :NERDTreeToggle<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fc :action GotoClass<CR>
+nnoremap <leader>fr :action RecentFiles<CR>
+nnoremap <leader>fp :action FindInPath<CR>
+
+nnoremap <leader>vm :action Git.Menu<CR>
+nnoremap <leader>vb :action Git.Branches<CR>
+nnoremap <leader>vl :action Annotate<CR>
+nnoremap <leader>vs :action Git.Stash<CR>
+nnoremap <leader>vu :action Git.Unstash<CR>
+nnoremap <leader>vd :action Vcs.ShowDiffChangedLines<CR>
+vnoremap <leader>vd :action Vcs.ShowDiffChangedLines<CR>
+nnoremap <leader>va :action Git.FileActions<CR>
+vnoremap <leader>va :action Git.FileActions<CR>
+nnoremap <leader>vc :action ActivateCommitToolWindow<CR>
+
+nnoremap <leader>sd :action QuickJavaDoc<CR>
+nnoremap <leader>se :action ShowErrorDescription<CR>
+nnoremap <leader>ss :action FileStructurePopup<CR>
+
+nnoremap <leader>r :action RunClass<CR>
+nnoremap <leader>R :action Run<CR>
+nnoremap <leader>rr :action Rerun<CR>
+nnoremap <leader>ra :action RunAnything<CR>
+nnoremap <leader>rk :action Stop<CR>
+
+nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <leader>d :action DebugClass<CR>
+nnoremap <leader>D :action Debug<CR>
+
+nnoremap <leader>c :action CommentByLineComment<CR>
+vnoremap <leader>c :action CommentByLineComment<CR>
+
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gu :action ShowUsages<CR>
+nnoremap gt :action GotoTest<CR>
+
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>rd :action SafeDelete<CR>
+
+nnoremap ]m :action MethodDown<CR>
+nnoremap [m :action MethodUp<CR>
+
+nnoremap ]e :action GotoNextError<CR>
+nnoremap [e :action GotoPreviousError<CR>
+
+nnoremap ]n :action NextOccurence<CR>
+nnoremap [n :action PreviousOccurence<CR>
+
+nnoremap ]w :action GotoNextWarning<CR>
+nnoremap [w :action GotoPreviousWarning<CR>
+
+nnoremap <leader><leader>r :action IdeaVim.ReloadVimRc.reload<CR>
