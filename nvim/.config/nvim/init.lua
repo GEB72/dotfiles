@@ -25,7 +25,7 @@ vim.keymap.set({'n'}, '<leader>W', ':wa<CR>')
 
 vim.keymap.set({'n', 'v'}, '<leader>sd', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
-vim.keymap.set({'i'}, 'aa','<Esc>')
+vim.keymap.set({'i'}, 'jk','<Esc>')
 
 vim.keymap.set({'v'}, '<leader>r', ':s/\\%V')
 
@@ -116,7 +116,10 @@ vim.lsp.config['nil'] = {
   cmd = { 'nil' },
   filetypes = { 'nix' },
   capabilities = capabilities,
-  },
+	formatting = {
+		command = { "nixfmt" }
+	}
+},
 
 vim.lsp.enable('luals')
 vim.lsp.enable('gopls')
