@@ -80,6 +80,9 @@
   (a s) tab $chord-timeout first-release ()
   (l ;) tab $chord-timeout first-release ()
 
+  (d f) ret $chord-timeout first-release ()
+  (j k) ret $chord-timeout first-release ()
+
   (s d) bspc $chord-timeout first-release ()
   (k l) bspc $chord-timeout first-release ()
 
