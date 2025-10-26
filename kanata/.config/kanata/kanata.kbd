@@ -1,0 +1,110 @@
+;; --- Define Global Config ---
+(defcfg 
+  process-unmapped-keys no
+  concurrent-tap-hold yes
+)
+
+
+;; ---- Define Source Keyboard ----
+(defsrc
+  esc            f1   f2   f3   f4   f5      f6   f7   f8   f9   f10     f11  f12
+  IntlBackslash  1    2    3    4    5       6    7    8    9    0       -    =    bspc
+  tab            q    w    e    r    t       y    u    i    o    p       [    ]    ret 
+  caps           a    s    d    f    g       h    j    k    l    ;       '    \ 
+  lsft   `       z    x    c    v    b       n    m    ,    .    /       rsft
+  fn     lctl    lalt lmet      spc                    rmet ralt
+) 
+(defalias 
+  bsl IntlBackslash
+  ssl S-IntlBackslash
+)
+
+
+;; ---- Define Base Layer ----
+(deflayer base
+  esc            🔅   🔆   @mc  @sls @dtn    @dnd ◀◀   ▶⏸   ▶▶   🔇      🔉   🔊
+  XX             1    2    3    4    5       6    7    8    9    0       -    =    bspc
+  tab            q    w    e    r    t       y    u    i    o    p       [    ]    ret 
+  @nav           @a   @s   @d   @f   g       h    @j   @k   @l   @;      '    \ 
+  XX     XX      z    x    c    v    b       n    m    ,    .    /       XX
+  fn     XX      XX   XX        spc                    XX   lrld 
+) 
+(defalias 
+  mc  C-up       ;; Mission Control
+  sls M-spc      ;; Spotlight Search
+  dtn S-C-A-M-f5 ;; Dictation
+  dnd S-C-A-M-f6 ;; Do Not Disturb
+  lp  S-C-A-M-l  ;; Launchpad
+)
+
+
+;; ---- Define Number Layer ----
+(deflayer number-layer
+  esc            🔅   🔆   @mc  @sls @dtn    @dnd ◀◀   ▶⏸   ▶▶   🔇      🔉   🔊
+  XX             XX   XX   XX   XX   XX      XX   XX   XX   XX   XX      XX   XX   bspc
+  XX             1    2    3    4    5       XX   XX   XX   XX   XX      XX   XX   ret 
+  XX             6    7    8    9    0       XX   XX   XX   XX   XX      XX   XX
+  XX     XX      XX   XX   XX   XX   .       XX   XX   XX   XX   XX      XX
+  XX     XX      XX   XX        spc                    XX   XX
+)
+(defalias num (layer-while-held number-layer))
+
+
+;; ---- Define Symbol Layer ---
+(deflayer symbol-layer
+  esc            🔅   🔆   @mc  @sls @dtn    @dnd  ◀◀   ▶⏸   ▶▶   🔇      🔉   🔊
+  XX             XX   XX   XX   XX   XX      XX    XX   XX   XX   XX      XX   XX   bspc
+  XX             '    S-,  S-.  S-2  S--     S-7   ;    S-[  S-]  S-5     XX   XX   ret
+  XX             S-1  -    S-=  =    \       S-`   S-;  S-9  S-0  S-'     XX   XX
+  XX     XX      S-6  /    S-8  @bsl S-\     `     S-4  [    ]    S-/     XX
+  XX     XX      XX   XX        spc                     XX   XX
+)
+(defalias sym (layer-while-held symbol-layer))
+
+
+;; ---- Navigation Layer Map ----
+(deflayermap nav-layer
+  h left
+  j down
+  k up
+  l right
+)
+(defalias nav (layer-while-held nav-layer))
+
+
+;; ---- Chords ----
+(defvar
+  chord-timeout 40
+)
+(defchordsv2
+  (d f) ret $chord-timeout first-release ()
+  (j k) ret $chord-timeout first-release ()
+
+  (s d) bspc $chord-timeout first-release ()
+  (k l) bspc $chord-timeout first-release ()
+
+  (i o) @sym $chord-timeout first-release ()
+  (w e) @sym $chord-timeout first-release ()
+
+  (, .) @num $chord-timeout first-release ()
+)
+
+
+;; ---- Home Row Mods ----
+(defvar
+  tap-time 220
+  tap-time-slow 270
+  hold-time 220
+  hold-time-slow 270
+)
+(defalias
+  a (tap-hold $tap-time-slow $hold-time-slow a lmet)
+  s (tap-hold $tap-time-slow $hold-time-slow s lalt)
+  d (tap-hold $tap-time $hold-time d lctl)
+  f (tap-hold $tap-time $hold-time f lsft)
+
+  j (tap-hold $tap-time $hold-time j lsft)
+  k (tap-hold $tap-time $hold-time k lctl)
+  l (tap-hold $tap-time-slow $hold-time-slow l lalt)
+  ; (tap-hold $tap-time-slow $hold-time-slow ; lmet)
+)

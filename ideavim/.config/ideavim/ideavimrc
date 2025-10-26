@@ -45,6 +45,7 @@ nnoremap <leader>wp :action ActivateProblemsToolWindow<CR>
 nnoremap <leader>wv :action ActivateVersionControlToolWindow<CR>
 
 nnoremap <leader>ft :NERDTreeToggle<CR>
+nnoremap <leader>fl :action SelectInProjectView<CR>
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fc :action GotoClass<CR>
 nnoremap <leader>fr :action RecentFiles<CR>
