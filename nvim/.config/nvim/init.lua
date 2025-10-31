@@ -4,7 +4,6 @@ vim.g.mapleader = "<Space>"
 
 -- Execute Setup First
 require("config.lazy")
-require("autoclose").setup()
 require("render-markdown").enable()
 
 
