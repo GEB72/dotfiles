@@ -28,6 +28,7 @@ vim.keymap.set({'i'}, 'jk','<Esc>')
 
 vim.keymap.set({'v'}, '<leader>r', ':s/\\%V')
 
+
 -- User commands
 vim.api.nvim_create_user_command('Lm', 'Leet menu', {})
 vim.api.nvim_create_user_command('Lc', 'Leet console', {})

@@ -3,8 +3,8 @@ return {
 	  'rmagatti/auto-session',
 	  lazy = false,
 	  keys = {
-		{ '<leader>fs', '<cmd>SessionSearch<CR>', desc = 'Session find/search' },
-		{ '<leader>s', '<cmd>SessionSave<CR>', desc = 'Save session' },
+		{ '<leader>fs', '<cmd>AutoSession search<CR>', desc = 'Session find/search' },
+		{ '<leader>s', '<cmd>AutoSession save<CR>', desc = 'Save session' },
 	  },
 
 	  ---enables autocomplete for opts
@@ -22,7 +22,7 @@ return {
 			-- },
 		  },
 		},
-		allowed_dirs = { '~/dotnix', '~/dotfiles/*', '~/Workspace/repo/*', '~/go/pkg/*' },
+		allowed_dirs = { '~/dotnix', '~/dotfiles', '~/Workspace/repo/*', '~/go/pkg/*' },
 	  },
 	}
 }
