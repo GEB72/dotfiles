@@ -44,8 +44,8 @@ nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
 nnoremap <leader>wp :action ActivateProblemsToolWindow<CR>
 nnoremap <leader>wv :action ActivateVersionControlToolWindow<CR>
 
-nnoremap <leader>ft :NERDTreeToggle<CR>
-nnoremap <leader>fl :action SelectInProjectView<CR>
+nnoremap <leader>fg :NERDTreeToggle<CR>
+nnoremap <leader>ft :action SelectInProjectView<CR>
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fc :action GotoClass<CR>
 nnoremap <leader>fr :action RecentFiles<CR>
@@ -61,6 +61,7 @@ vnoremap <leader>vd :action Vcs.ShowDiffChangedLines<CR>
 nnoremap <leader>va :action Git.FileActions<CR>
 vnoremap <leader>va :action Git.FileActions<CR>
 nnoremap <leader>vc :action ActivateCommitToolWindow<CR>
+nnoremap <leader>vp :action Vcs.Push<CR>
 
 nnoremap <leader>sd :action QuickJavaDoc<CR>
 nnoremap <leader>se :action ShowErrorDescription<CR>

@@ -24,10 +24,10 @@
 (deflayer base
   esc            🔅   🔆   @mc  @sls @dtn    @dnd ◀◀   ▶⏸   ▶▶   🔇      🔉   🔊
   XX             1    2    3    4    5       6    7    8    9    0       -    =    bspc
-  tab            q    w    e    r    t       y    u    i    o    p       [    ]    ret 
-  @nav           @a   @s   @d   @f   g       h    @j   @k   @l   @;      '    \ 
-  XX     XX      z    x    c    v    b       n    m    ,    .    /       XX
-  fn     XX      XX   XX        spc                    XX   lrld 
+  XX             @q   w    e    r    t       y    u    i    o    p       [    ]    ret 
+  @caps          @a   @s   @d   @f   @g      @h   @j   @k   @l   @;      '    \ 
+  bspc    XX     z    x    c    v    b       n    @m   ,    .    /       XX
+  fn      XX     XX   XX        spc                    XX   lrld 
 ) 
 (defalias 
   mc  C-up       ;; Mission Control
@@ -75,27 +75,18 @@
 ;; ---- Chords ----
 (defvar
   chord-timeout 40
+  chord-timeout-slow 60
 )
 (defchordsv2
-  (a s) tab $chord-timeout first-release ()
-  (l ;) tab $chord-timeout first-release ()
-
-  (s d) bspc $chord-timeout first-release ()
-  (k l) bspc $chord-timeout first-release ()
+  (s d) bspc $chord-timeout-slow first-release ()
+  (k l) bspc $chord-timeout-slow first-release ()
 
   (d f) ret $chord-timeout first-release ()
   (j k) ret $chord-timeout first-release ()
-
-  (i o) @sym $chord-timeout first-release ()
-  (w e) @sym $chord-timeout first-release ()
-
-  (, .) @num $chord-timeout first-release ()
-
-  (q w) esc $chord-timeout first-release ()
 )
 
 
-;; ---- Home Row Mods ----
+;; ---- Home Row Mods + Tap Dance ----
 (defvar
   tap-time 220
   tap-time-slow 270
@@ -103,13 +94,20 @@
   hold-time-slow 270
 )
 (defalias
-  a (tap-hold $tap-time-slow $hold-time-slow a lmet)
+  caps (tap-dance $tap-time (@nav tab))
+  q (tap-dance $tap-time (q esc))
+
+  a (tap-hold $tap-time-slow $hold-time-slow a lmet)      
   s (tap-hold $tap-time-slow $hold-time-slow s lalt)
   d (tap-hold $tap-time $hold-time d lctl)
   f (tap-hold $tap-time $hold-time f lsft)
+  g (tap-hold $tap-time $hold-time-slow g @sym)
 
+  h (tap-hold $tap-time $hold-time-slow h @sym)
   j (tap-hold $tap-time $hold-time j lsft)
   k (tap-hold $tap-time $hold-time k lctl)
   l (tap-hold $tap-time-slow $hold-time-slow l lalt)
-  ; (tap-hold $tap-time-slow $hold-time-slow ; lmet)
+  ; (tap-hold $tap-time-slow $hold-time-slow ; lmet)      
+
+  m (tap-hold $tap-time $hold-time m @num)
 )
