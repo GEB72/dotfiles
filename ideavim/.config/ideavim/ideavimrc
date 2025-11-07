@@ -19,8 +19,13 @@ set visualbell
 nnoremap <SPACE> <Nop>
 let mapleader = "\<Space>"
 
+noremap <C-h> :action PrevSplitter<CR> 
+noremap <C-l> :action NextSplitter<CR> 
+noremap <C-j> :action NextTab<CR> 
+noremap <C-k> :action PreviousTab<CR> 
+
 nnoremap <CR> o<Esc>k
-nnoremap <S-CR> o<Esc>j
+nnoremap <S-CR> O<Esc>j
 
 inoremap jk <Esc>
 
@@ -29,17 +34,18 @@ nnoremap <leader>h :action HideActiveWindow<CR>
 
 nnoremap <leader><leader>d :action ToggleDistractionFreeMode<CR>
 nnoremap <leader><leader>z :action ToggleZenMode<CR>
-nnoremap <leader><leader>f :action ToggleFullScreen<CR>
 
 nnoremap <leader><leader>l :action MoveTabRight<CR>
 nnoremap <leader><leader>h :action MoveTabLeft<CR>
 nnoremap <leader><leader>L :action SplitVertically<CR>
 nnoremap <leader><leader>J :action SplitHorizontally<CR>
 nnoremap <leader><leader>s :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <leader><leader>f :action MaximizeEditorInSplit<CR>
 
 nnoremap <leader>wf :action ActivateProjectToolWindow<CR>
 nnoremap <leader>wb :action ActivateBookmarksToolWindow<CR>
 nnoremap <leader>wr :action ActivateRunToolWindow<CR>
+nnoremap <leader>ws :action ActivateServicesToolWindow<CR>
 nnoremap <leader>wd :action ActivateDebugToolWindow<CR>
 nnoremap <leader>wp :action ActivateProblemsToolWindow<CR>
 nnoremap <leader>wv :action ActivateVersionControlToolWindow<CR>

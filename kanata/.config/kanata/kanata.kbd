@@ -25,8 +25,8 @@
   esc            🔅   🔆   @mc  @sls @dtn    @dnd ◀◀   ▶⏸   ▶▶   🔇      🔉   🔊
   XX             1    2    3    4    5       6    7    8    9    0       -    =    bspc
   XX             @q   w    e    r    t       y    u    i    o    p       [    ]    ret 
-  @caps          @a   @s   @d   @f   @g      @h   @j   @k   @l   @;      '    \ 
-  bspc    XX     z    x    c    v    b       n    @m   ,    .    /       XX
+  @caps          @a   @s   @d   @f   g       h    @j   @k   @l   @;      @'   \ 
+  bspc    XX     z    x    c    @v   b       n    @m   ,    .    /       XX
   fn      XX     XX   XX        spc                    XX   lrld 
 ) 
 (defalias 
@@ -101,13 +101,14 @@
   s (tap-hold $tap-time-slow $hold-time-slow s lalt)
   d (tap-hold $tap-time $hold-time d lctl)
   f (tap-hold $tap-time $hold-time f lsft)
-  g (tap-hold $tap-time $hold-time-slow g @sym)
 
-  h (tap-hold $tap-time $hold-time-slow h @sym)
   j (tap-hold $tap-time $hold-time j lsft)
   k (tap-hold $tap-time $hold-time k lctl)
   l (tap-hold $tap-time-slow $hold-time-slow l lalt)
   ; (tap-hold $tap-time-slow $hold-time-slow ; lmet)      
 
-  m (tap-hold $tap-time $hold-time m @num)
+  v (tap-hold $tap-time $hold-time v @sym)
+  m (tap-hold $tap-time $hold-time m @sym)
+
+  ' (tap-hold $tap-time $hold-time ' @num)
 )
