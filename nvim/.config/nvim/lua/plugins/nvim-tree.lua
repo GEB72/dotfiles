@@ -26,7 +26,7 @@ return {
 	  vim.keymap.set('n', 'cd', api.tree.change_root_to_node, opts('Up'))
 	  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 	end
-	vim.keymap.set('n', '<leader>tt', api.tree.toggle, {})
+	vim.keymap.set('n', '<leader>ft', api.tree.toggle, {})
 
 	require("nvim-tree").setup({
 	  on_attach = on_attach,

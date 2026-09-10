@@ -44,8 +44,9 @@ vim.api.nvim_create_user_command('Le', 'Leet exit', {})
 
 -- General Formatting
 vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
+vim.opt.softtabstop = -1
 vim.opt.shiftwidth = 2
+vim.o.expandtab = true;
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true

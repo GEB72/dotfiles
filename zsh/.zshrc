@@ -10,15 +10,6 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-# Oh-my-zsh plugins
-plugins=( git zsh-256color zsh-autosuggestions zsh-syntax-highlighting aws )
-export ZSH=~/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-# Set default text editor
-export EDITOR="nvim"
-export VISUAL="nvim"
-
 # Fastfetch on fclear
 alias fclear="clear; fastfetch"
 
